@@ -19,4 +19,4 @@ if __name__ == '__main__':
     print(contents)
     tokens = lexing(contents)
     print("--------tokens--------")
-    [print(t.string()) for t in tokens]
+    # [print(t.string()) for t in tokens]

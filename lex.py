@@ -6,7 +6,7 @@ OPERATOR = {'+': TokenType.PLUS,
             '/': TokenType.DIVISION}
 
 class Lexer:
-    def __init__(self, inpiut_str, str):
+    def __init__(self, inpiut_str: str):
         self.input = inpiut_str
         self.pos = 0
     
@@ -31,7 +31,7 @@ class Lexer:
         elif self.input[self.pos] in '+-*/':
             op = self.input[self.pos]
             self.pos += 1
-            return Token(OPERATOR[op]. op)
+            return Token(OPERATOR[op], op)
         elif self.input[self.pos] == '\x00':
             return Token(TokenType.EOF, "\x00")
         else:
@@ -39,7 +39,7 @@ class Lexer:
                 f"invalid token:{self.input[self.pos].string()}")
     
     def skip_whitespace(self):
-        if self.pos >= len(self.inoput):
+        if self.pos >= len(self.input):
             return
         while self.input[self.pos] in [' ', '\t', '\n']:
             self.pos += 1
